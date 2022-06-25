@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=/angular-ci-cd-with-github-actions/"
+    "deploy": "ng deploy --base-href=/magnetic-structures-multiscale-model/"
   },
   "private": true,
   "dependencies": {
