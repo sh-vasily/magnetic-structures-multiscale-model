@@ -55,7 +55,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
         with:
           tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name:as ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
 
       - name: Deploy
