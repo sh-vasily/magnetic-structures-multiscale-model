@@ -35,9 +35,11 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
+          cd ui
           npm ci
       - name: Build
         run: |
+          cd ui
           npm run build -- --prod
       - name: Conventional Changelog Action
         id: changelog
@@ -58,4 +60,5 @@ jobs:
 
       - name: Deploy
         run: |
+          cd ui
           npm run deploy
