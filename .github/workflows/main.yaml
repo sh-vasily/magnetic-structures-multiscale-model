@@ -61,4 +61,6 @@ jobs:
       - name: Deploy
         run: |
           cd ui
+          npm install
+          npm run build
           npm run deploy
