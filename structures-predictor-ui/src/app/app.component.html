@@ -305,18 +305,51 @@
     flex-direction: column;
   }
 
+  .example-button-row button,
+  .example-button-row a {
+    margin-right: 8px;
+  }
+
+  .example-container{
+    text-align: center;
+    width: 50%;
+    position: absolute; /*Can also be `fixed`*/
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 0;
+    margin: auto;
+    }
+
+.form-container{
+    width: 400 px; 
+    margin: 0 px auto; 
+    margin-top: 200 px
+}
+
+.form-field{
+    display: block
+}
+
 </style>
 
-<!-- Toolbar -->
 <div class="toolbar" role="banner">
   <mat-icon>assessment</mat-icon>
-  <span>Информационная поддержка многомасщтабной модели для предсказания магнетической структуры по её свойствам</span>
+  <span>Информационная поддержка многомасштабной модели для предсказания магнетической структуры по её свойствам</span>
 </div>
 
-<div class="content" role="main">
-  <span>Спин волновая дисперсия</span>
-  <input>
-  <span>Магнетическа стрктура</span>
-  <input>
-  <button (click)="onPredictButtonClick()">Получить химическую формулу и кристаллическую стрктуру</button>
+<div class="example-container">
+    <form [formGroup]="predictionRequestForm" (submit)="onPredictButtonClick()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Спин волновая дисперсия
+        </mat-label>
+        <input matInput formControlName="spinWaveDispersion" required>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Магнетическа стрктура
+        </mat-label>
+        <input matInput formControlName="magneticStructure" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Получить химическую формулу и кристаллическую стрктуру</button>
+    </form>
 </div>

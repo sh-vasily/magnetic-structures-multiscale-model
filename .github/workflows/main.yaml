@@ -14,8 +14,8 @@ jobs:
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2 ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
       with:
         github_access_token: ${{ secrets.TOKEN_GITHUB_ACTION }} # see the Configuration section for how you can create secrets
-        angular_project_dir: ./ui
+        angular_project_dir: ./structures-predictor-ui
         build_configuration: production # The build environment for the app. please look configurations in your angular.json
         base_href: /magnetic-structures-multiscale-model/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
         deploy_branch: gh-pages # The branch the action should deploy to.
-        angular_dist_build_folder: ui/dist/ui # The folder where your project is supposed to be after running ng build by the action.
+        angular_dist_build_folder: structures-predictor-ui/dist/structures-predictor-ui # The folder where your project is supposed to be after running ng build by the action.

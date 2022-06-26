@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PredictionRequest } from './models/preditction-request';
 import PredictionService from './services/prediction-service';
 
 @Component({
@@ -6,23 +8,23 @@ import PredictionService from './services/prediction-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
 
   private _predictionService : PredictionService;
+
+  predictionRequest : PredictionRequest = {
+    magneticStructure : "Solid",
+    spinWaveDispersion: 0.1
+  }
+
+  predictionRequestForm : FormGroup = new FormBuilder().group(this.predictionRequest);
 
   constructor(predictionService: PredictionService){
     this._predictionService = predictionService;
   }
 
-  title = 'ui';
-
   onPredictButtonClick(){
-
-    let predictionResult = this._predictionService.predict({
-      magneticStructure : "solid",
-      spinWaveDispersion: 10.23
-    });
-
+    let predictionResult = this._predictionService.predict(this.predictionRequest);
     alert(`Prediciton result.\nChemicalFormula: ${predictionResult.chemicalFormula}\nCrystallic Structure: ${predictionResult.crystallicStructure}`)
   }
 }
