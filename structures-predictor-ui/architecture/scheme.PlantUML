@@ -1,0 +1,33 @@
+@startuml
+skinparam interface {
+  backgroundColor RosyBrown
+  borderColor orange
+}
+
+skinparam component {
+  FontSize 13
+  BackgroundColor<<Apache>> Pink
+  BorderColor<<Apache>> #FF6655
+  FontName Courier
+  BorderColor black
+  BackgroundColor gold
+  ArrowFontName Impact
+  ArrowColor #FF6655
+  ArrowFontColor #777777
+}
+
+Component "Structures Predictor UI" as UI
+Component "Structures Predictor API" as API
+Component "Prediction Model" as Model
+Component "Experiments DataWareHouse" as DWH
+Component "Magnetic Modelling Module" as MMM
+Component "Scenario Manager" as SM
+
+[UI] ..> () HTTP : use
+HTTP -- API
+API ---> Model
+DWH -> Model
+MMM --> DWH
+SM -> MMM
+
+@enduml
